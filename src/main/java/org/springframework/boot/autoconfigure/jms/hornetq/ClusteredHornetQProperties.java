@@ -1,21 +1,25 @@
 package org.springframework.boot.autoconfigure.jms.hornetq;
 
-import org.springframework.boot.autoconfigure.jms.hornetq.HornetQProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 /**
+ * Property class extending {@link HornetQProperties} to also include
+ * <code>spring.hornetq.authorities</code>, <code>spring.hornetq.user</code> and
+ * <code>spring.hornetq.password</code>
+ * 
  * @author CFM
  *
  */
+@Data
+@EqualsAndHashCode(callSuper = true)
 @ConfigurationProperties(prefix = "spring.hornetq")
 public class ClusteredHornetQProperties extends HornetQProperties {
     private String authorities;
 
-    public String getAuthorities() {
-        return authorities;
-    }
+    private String user;
 
-    public void setAuthorities(String authorities) {
-        this.authorities = authorities;
-    }
+    private String password;
 }
