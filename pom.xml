@@ -2,14 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<!-- <parent> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starters</artifactId> 
-		<version>1.4.0.M3</version> </parent> -->
 	<groupId>com.github.leflamm</groupId>
 	<artifactId>spring-boot-starter-hornetq-clustered</artifactId>
 	<name>Spring Boot HornetQ Starter Clustered</name>
 	<version>0.0.1-SNAPSHOT</version>
 	<description>Starter for JMS messaging using clustered HornetQ</description>
-	<url></url>
+	<url>https://github.com/leflamm/spring-boot-starter-hornetq-cluster</url>
 	<organization>
 		<name>Foo, Inc.</name>
 		<url>foo.io</url>
