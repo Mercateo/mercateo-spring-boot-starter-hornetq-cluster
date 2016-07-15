@@ -9,7 +9,7 @@ Alternative to the original starter ``org.springframework.boot:spring-boot-start
 
 ```xml
 <dependency>
-    <groupId>todo.groupId</groupId>
+    <groupId>com.mercateo</groupId>
     <artifactId>spring-boot-starter-hornetq-cluster</artifactId>
     <version>todo.version</version>
 </dependency>
