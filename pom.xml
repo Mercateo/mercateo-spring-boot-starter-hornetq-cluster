@@ -2,16 +2,64 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.github.leflamm</groupId>
 	<artifactId>spring-boot-starter-hornetq-clustered</artifactId>
-	<name>Spring Boot HornetQ Starter Clustered</name>
-	<version>0.0.1-SNAPSHOT</version>
-	<description>Starter for JMS messaging using clustered HornetQ</description>
+	<groupId>com.mercateo</groupId>
+	<version>0.9.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>spring-boot-starter-hornetq-clustered</name>
+	<description>Spring Boot HornetQ starter project for connecting multiple HornetQ nodes</description>
 	<url>https://github.com/leflamm/spring-boot-starter-hornetq-cluster</url>
+	<inceptionYear>2016</inceptionYear>
 	<organization>
-		<name>Foo, Inc.</name>
-		<url>foo.io</url>
+		<name>Mercateo AG</name>
+		<url>http://www.mercateo.com</url>
 	</organization>
+	<issueManagement>
+		<system>github</system>
+		<url>https://github.com/Mercateo/spring-boot-starter-hornetq-clustered/issues</url>
+	</issueManagement>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+	<licenses>
+		<license>
+			<name>ASL2</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+	<scm>
+		<connection>scm:git:https://github.com/Mercateo/spring-boot-starter-hornetq-clustered</connection>
+		<developerConnection>scm:git:https://github.com/Mercateo/spring-boot-starter-hornetq-clustered.git</developerConnection>
+		<url>https://github.com/Mercateo/spring-boot-starter-hornetq-clustered.git</url>
+	</scm>
+	<developers>
+		<developer>
+			<id>leflamm</id>
+			<name>Christian Flamm</name>
+			<email>christian.flamm@mercateo.com</email>
+			<url>http://www.mercateo.com</url>
+			<organization>Mercateo AG</organization>
+			<organizationUrl>http://www.mercateo.com</organizationUrl>
+			<roles>
+				<role>developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>uweschaefer</id>
+			<name>Uwe Schaefer</name>
+			<email>uwe.schaefer@mercateo.com</email>
+			<url>http://www.mercateo.com</url>
+			<organization>Mercateo AG</organization>
+			<organizationUrl>http://www.mercateo.com</organizationUrl>
+			<roles>
+				<role>developer</role>
+				<role>architect</role>
+			</roles>
+		</developer>
+	</developers>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -59,4 +107,32 @@
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<id>release-sign-artifacts</id>
+			<activation>
+				<property>
+					<name>gpg.passphrase</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.6</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
