@@ -13,7 +13,7 @@ Not yet available on Maven Central.
 <dependency>
     <groupId>com.mercateo</groupId>
     <artifactId>spring-boot-starter-hornetq-cluster</artifactId>
-    <version>todo.version</version>
+    <version>1.3.5.RELEASE</version>
 </dependency>
 ```
 
