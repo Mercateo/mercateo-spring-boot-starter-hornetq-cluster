@@ -7,6 +7,8 @@ Alternative to the original starter ``org.springframework.boot:spring-boot-start
 
 ### GAV
 
+Not yet available on Maven Central.
+
 ```xml
 <dependency>
     <groupId>com.mercateo</groupId>
