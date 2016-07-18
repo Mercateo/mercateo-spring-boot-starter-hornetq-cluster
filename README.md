@@ -1,4 +1,4 @@
-# spring-boot-starter-hornetq-cluster
+# mercateo-spring-boot-starter-hornetq-cluster
 
 ![Build Status](https://travis-ci.org/Mercateo/mercateo-spring-boot-starter-hornetq-cluster.svg)
 
@@ -12,7 +12,7 @@ Not yet available on Maven Central.
 ```xml
 <dependency>
     <groupId>com.mercateo</groupId>
-    <artifactId>spring-boot-starter-hornetq-cluster</artifactId>
+    <artifactId>mercateo-spring-boot-starter-hornetq-cluster</artifactId>
     <version>1.3.5.RELEASE</version>
 </dependency>
 ```
