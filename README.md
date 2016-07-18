@@ -1,6 +1,6 @@
 # spring-boot-starter-hornetq-cluster
 
-![Build Status](https://travis-ci.org/Mercateo/spring-boot-starter-hornetq-cluster.svg)
+![Build Status](https://travis-ci.org/Mercateo/mercateo-spring-boot-starter-hornetq-cluster.svg)
 
 
 Alternative to the original starter ``org.springframework.boot:spring-boot-starter-hornetq`` providing an easy way to connect to multiple Hornetq nodes, e. g. a fail-over setup.
