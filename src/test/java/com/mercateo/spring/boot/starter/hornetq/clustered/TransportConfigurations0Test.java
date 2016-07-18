@@ -1,10 +1,11 @@
-package org.springframework.boot.autoconfigure.jms.hornetq;
+package com.mercateo.spring.boot.starter.hornetq.clustered;
 
 import static org.junit.Assert.assertEquals;
 
 import org.hornetq.api.core.TransportConfiguration;
 import org.hornetq.core.remoting.impl.netty.NettyConnectorFactory;
 import org.junit.Test;
+import com.mercateo.spring.boot.starter.hornetq.clustered.TransportConfigurations;
 
 public class TransportConfigurations0Test {
     @Test(expected = NullPointerException.class)

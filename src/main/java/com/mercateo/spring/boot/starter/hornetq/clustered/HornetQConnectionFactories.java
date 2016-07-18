@@ -1,4 +1,4 @@
-package org.springframework.boot.autoconfigure.jms.hornetq;
+package com.mercateo.spring.boot.starter.hornetq.clustered;
 
 import java.lang.reflect.Constructor;
 import java.util.Arrays;

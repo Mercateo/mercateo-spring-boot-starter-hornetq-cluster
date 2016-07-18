@@ -1,4 +1,4 @@
-package org.springframework.boot.autoconfigure.jms.hornetq;
+package com.mercateo.spring.boot.starter.hornetq.clustered;
 
 import static com.google.common.base.Preconditions.checkArgument;
 

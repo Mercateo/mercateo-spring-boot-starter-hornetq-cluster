@@ -3,8 +3,11 @@ package org.springframework.boot.autoconfigure.jms.hornetq;
 import org.hornetq.api.core.TransportConfiguration;
 import org.hornetq.jms.client.HornetQConnectionFactory;
 import org.springframework.beans.factory.ListableBeanFactory;
+import org.springframework.boot.autoconfigure.jms.hornetq.HornetQConnectionFactoryFactory;
 
 import com.google.common.annotations.VisibleForTesting;
+import com.mercateo.spring.boot.starter.hornetq.clustered.ClusteredHornetQProperties;
+import com.mercateo.spring.boot.starter.hornetq.clustered.HornetQConnectionFactories;
 
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +27,7 @@ public class ClusteredHornetQConnectionFactoryFactory extends HornetQConnectionF
 
     private final String authorities;
 
-    ClusteredHornetQConnectionFactoryFactory(@NonNull ListableBeanFactory beanFactory,
+    public ClusteredHornetQConnectionFactoryFactory(@NonNull ListableBeanFactory beanFactory,
             @NonNull ClusteredHornetQProperties properties) {
         super(beanFactory, properties);
         authorities = properties.getAuthorities();

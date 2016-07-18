@@ -11,6 +11,9 @@ import org.hornetq.api.core.TransportConfiguration;
 import org.hornetq.jms.client.HornetQConnectionFactory;
 import org.junit.Test;
 import org.springframework.beans.factory.ListableBeanFactory;
+import org.springframework.boot.autoconfigure.jms.hornetq.ClusteredHornetQConnectionFactoryFactory;
+
+import com.mercateo.spring.boot.starter.hornetq.clustered.ClusteredHornetQProperties;
 
 public class ClusteredHornetQConnectionFactoryFactory0Test {
 

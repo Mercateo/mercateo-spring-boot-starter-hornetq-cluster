@@ -13,6 +13,10 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
+import com.mercateo.spring.boot.starter.hornetq.clustered.ClusteredHornetQConnectionFactoryConfiguration;
+import com.mercateo.spring.boot.starter.hornetq.clustered.ClusteredHornetQProperties;
+import com.mercateo.spring.boot.starter.hornetq.clustered.UserCredentialsConnectionFactoryAdapterConfiguration;
+
 /**
  * Slightly altered version of the original {@link HornetQAutoConfiguration}
  * configuration class integrating custom factories and configuration classes
