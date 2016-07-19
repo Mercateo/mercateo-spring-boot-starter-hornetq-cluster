@@ -7,7 +7,7 @@
 	<version>1.3.5.RELEASE</version>
 	<packaging>jar</packaging>
 	<name>mercateo-spring-boot-starter-hornetq-cluster</name>
-	<description>Spring Boot HornetQ starter project for connecting multiple HornetQ nodes</description>
+	<description>Spring Boot HornetQ starter project for connecting to multiple HornetQ nodes</description>
 	<url>https://github.com/Mercateo/mercateo-spring-boot-starter-hornetq-cluster</url>
 	<inceptionYear>2016</inceptionYear>
 	<organization>
@@ -23,6 +23,10 @@
 			<id>ossrh</id>
 			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
 	</distributionManagement>
 	<licenses>
 		<license>
@@ -168,34 +172,20 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
-	<profiles>
-		<profile>
-			<id>release-sign-artifacts</id>
-			<activation>
-				<property>
-					<name>gpg.passphrase</name>
-				</property>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-gpg-plugin</artifactId>
-						<version>1.6</version>
-						<executions>
-							<execution>
-								<id>sign-artifacts</id>
-								<phase>verify</phase>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
 </project>
