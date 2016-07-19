@@ -1,13 +1,20 @@
 # mercateo-spring-boot-starter-hornetq-cluster
 
+Alternative / substitute to (but actually a wrapper of) the original starter ``org.springframework.boot:spring-boot-starter-hornetq`` providing a very easy way to connect to multiple Hornetq nodes, e. g. them being in a fail-over setup.
+
+Versions will imply the versions of ``org.springframework.boot:spring-boot-starter-hornetq`` being wrapped.
+
+### Build status
+
 ![Build Status](https://travis-ci.org/Mercateo/mercateo-spring-boot-starter-hornetq-cluster.svg)
 
+### What it does
 
-Alternative to the original starter ``org.springframework.boot:spring-boot-starter-hornetq`` providing an easy way to connect to multiple Hornetq nodes, e. g. a fail-over setup.
+TODO
 
-### GAV
+### Use it
 
-Not yet available on Maven Central.
+Add the folling snippet to your ``pom.xml``:
 
 ```xml
 <dependency>
