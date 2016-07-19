@@ -2,17 +2,17 @@
 
 Alternative / substitute to (but actually a wrapper of) the original starter ``org.springframework.boot:spring-boot-starter-hornetq`` providing a very easy way to connect to multiple Hornetq nodes, e. g. them being in a fail-over setup.
 
+- creates a ``HornetQConnectionFactory`` by adding Netty ``TransportConfiguration``s for every given Hornetq authority (``host:port``)
+- if configured, will use ``spring.hornetq.user`` and ``spring.hornetq.password``to create a  ``UserCredentialsConnectionFactoryAdapter`` wrapping previously created ``ConnectionFactory`` applying the given user credentials to every standard ``createConnection()`` call.
+- no JNDI lookups involved
+
 Versions will imply the versions of ``org.springframework.boot:spring-boot-starter-hornetq`` being wrapped.
 
 ### Build status
 
 ![Build Status](https://travis-ci.org/Mercateo/mercateo-spring-boot-starter-hornetq-cluster.svg)
 
-### What it does
-
-TODO
-
-### Use it
+### Use
 
 Add the folling snippet to your ``pom.xml``:
 
