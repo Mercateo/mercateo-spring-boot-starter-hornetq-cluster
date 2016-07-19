@@ -16,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
  * Configuration class proving bean for
  * {@link UserCredentialsConnectionFactoryAdapter} wrapping an available
  * {@link HornetQConnectionFactory} instance, applying the given user
- * credentials to every standard createConnection() call
+ * credentials to every standard <code>createConnection()</code> call.
  * 
  * @author CFM
  */
