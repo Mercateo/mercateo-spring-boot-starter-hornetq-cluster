@@ -7,15 +7,18 @@ import static org.mockito.Mockito.mock;
 import javax.jms.ConnectionFactory;
 
 import org.hornetq.jms.client.HornetQConnectionFactory;
+import org.junit.After;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 public class ClusteredHornetQAutoConfiguration1Test {
 
+    private AnnotationConfigApplicationContext ctx;
+
     @Test
     public void shouldUseAutoconfigurationToCreateMissingBean() {
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
+        ctx = new AnnotationConfigApplicationContext();
         ctx.register(ClusteredHornetQAutoConfiguration.class);
         ctx.refresh();
         HornetQConnectionFactory jmsConnectionFactory = (HornetQConnectionFactory) ctx.getBean(
@@ -38,7 +41,7 @@ public class ClusteredHornetQAutoConfiguration1Test {
 
     @Test
     public void shouldUseUserProvidedConfigOverAutoconfiguration() {
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
+        ctx = new AnnotationConfigApplicationContext();
         ctx.register(UserProvidedFactory.class, ClusteredHornetQAutoConfiguration.class);
         ctx.refresh();
         HornetQConnectionFactory jmsConnectionFactory = (HornetQConnectionFactory) ctx.getBean(
@@ -61,7 +64,7 @@ public class ClusteredHornetQAutoConfiguration1Test {
 
     @Test
     public void shouldUseUserProvidedConfigOverAutoconfiguration2() {
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
+        ctx = new AnnotationConfigApplicationContext();
         ctx.register(UserProvidedFactory2.class, ClusteredHornetQAutoConfiguration.class);
         ctx.refresh();
         HornetQConnectionFactory jmsConnectionFactory = (HornetQConnectionFactory) ctx.getBean(
@@ -70,5 +73,14 @@ public class ClusteredHornetQAutoConfiguration1Test {
 
         HornetQConnectionFactory viaType = ctx.getBean(HornetQConnectionFactory.class);
         assertSame(UserProvidedFactory2.dummyFactory, viaType);
+    }
+
+    @After
+    public void tearDown() {
+        try {
+            ctx.close();
+        } catch (Exception e) {
+            // can't help it then...
+        }
     }
 }
