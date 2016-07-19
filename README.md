@@ -26,6 +26,8 @@ Include the folling snippet in your project's ``pom.xml``:
 
 ### Configure
 
+Be aware that these ports must be Netty ports (default 5445), not JNDI (default 1099).
+
 ```
 spring.hornetq.authorities=node1:port1,node2:port2,...
 spring.hornetq.mode=native
