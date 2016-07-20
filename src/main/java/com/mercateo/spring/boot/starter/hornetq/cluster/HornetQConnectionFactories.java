@@ -1,4 +1,4 @@
-package com.mercateo.spring.boot.starter.hornetq.clustered;
+package com.mercateo.spring.boot.starter.hornetq.cluster;
 
 import java.lang.reflect.Constructor;
 import java.util.Arrays;

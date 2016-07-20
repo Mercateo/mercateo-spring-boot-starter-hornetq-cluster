@@ -1,4 +1,4 @@
-package com.mercateo.spring.boot.starter.hornetq.clustered;
+package com.mercateo.spring.boot.starter.hornetq.cluster;
 
 import org.springframework.boot.autoconfigure.jms.hornetq.HornetQProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;

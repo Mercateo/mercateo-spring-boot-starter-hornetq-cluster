@@ -6,8 +6,8 @@ import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.boot.autoconfigure.jms.hornetq.HornetQConnectionFactoryFactory;
 
 import com.google.common.annotations.VisibleForTesting;
-import com.mercateo.spring.boot.starter.hornetq.clustered.ClusteredHornetQProperties;
-import com.mercateo.spring.boot.starter.hornetq.clustered.HornetQConnectionFactories;
+import com.mercateo.spring.boot.starter.hornetq.cluster.ClusteredHornetQProperties;
+import com.mercateo.spring.boot.starter.hornetq.cluster.HornetQConnectionFactories;
 
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;

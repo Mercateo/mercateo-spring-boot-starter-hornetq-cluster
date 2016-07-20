@@ -13,7 +13,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.boot.autoconfigure.jms.hornetq.ClusteredHornetQConnectionFactoryFactory;
 
-import com.mercateo.spring.boot.starter.hornetq.clustered.ClusteredHornetQProperties;
+import com.mercateo.spring.boot.starter.hornetq.cluster.ClusteredHornetQProperties;
 
 public class ClusteredHornetQConnectionFactoryFactory0Test {
 

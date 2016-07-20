@@ -1,4 +1,4 @@
-package com.mercateo.spring.boot.starter.hornetq.clustered;
+package com.mercateo.spring.boot.starter.hornetq.cluster;
 
 import javax.jms.ConnectionFactory;
 

@@ -1,11 +1,12 @@
-package com.mercateo.spring.boot.starter.hornetq.clustered;
+package com.mercateo.spring.boot.starter.hornetq.cluster;
 
 import static org.junit.Assert.*;
 
 import org.hornetq.api.core.TransportConfiguration;
 import org.hornetq.jms.client.HornetQConnectionFactory;
 import org.junit.Test;
-import com.mercateo.spring.boot.starter.hornetq.clustered.HornetQConnectionFactories;
+
+import com.mercateo.spring.boot.starter.hornetq.cluster.HornetQConnectionFactories;
 
 public class HornetQConnectionFactories0Test {
 
