@@ -23,4 +23,6 @@ public class ClusteredHornetQProperties extends HornetQProperties {
     private String user;
 
     private String password;
+
+    private Integer windowSize;
 }
