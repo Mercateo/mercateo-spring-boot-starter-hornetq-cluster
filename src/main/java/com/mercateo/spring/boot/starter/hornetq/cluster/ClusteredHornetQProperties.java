@@ -8,8 +8,9 @@ import lombok.EqualsAndHashCode;
 
 /**
  * Property class extending {@link HornetQProperties} to also include
- * <code>spring.hornetq.authorities</code>, <code>spring.hornetq.user</code> and
- * <code>spring.hornetq.password</code>.
+ * <code>spring.hornetq.authorities</code>, <code>spring.hornetq.user</code>,
+ * <code>spring.hornetq.password</code> and
+ * <code>spring.hornetq.windowSize</code>
  * 
  * @author CFM
  *

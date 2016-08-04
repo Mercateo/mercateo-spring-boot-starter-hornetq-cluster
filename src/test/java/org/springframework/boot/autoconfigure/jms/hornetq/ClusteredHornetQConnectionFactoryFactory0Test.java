@@ -40,7 +40,8 @@ public class ClusteredHornetQConnectionFactoryFactory0Test {
     }
 
     @Test
-    public void mustFallbacktoSuperclassBecauseNoAuthoritiesConfiguredNoWindowSize() throws Exception {
+    public void mustFallbacktoSuperclassBecauseNoAuthoritiesConfiguredNoWindowSize()
+            throws Exception {
         ClusteredHornetQProperties noAuthorities = new ClusteredHornetQProperties();
         ClusteredHornetQConnectionFactoryFactory uut = spy(
                 new ClusteredHornetQConnectionFactoryFactory(mockBeanFactory, noAuthorities));
@@ -51,7 +52,8 @@ public class ClusteredHornetQConnectionFactoryFactory0Test {
     }
 
     @Test
-    public void mustNotFallbacktoSuperclassBecauseTwoAuthoritiesConfiguredNoWindowSize() throws Exception {
+    public void mustNotFallbacktoSuperclassBecauseTwoAuthoritiesConfiguredNoWindowSize()
+            throws Exception {
         ClusteredHornetQProperties twoAuthorities = new ClusteredHornetQProperties();
         twoAuthorities.setAuthorities("foo:8888,bar:9999");
         ClusteredHornetQConnectionFactoryFactory uut = spy(
@@ -63,19 +65,20 @@ public class ClusteredHornetQConnectionFactoryFactory0Test {
     }
 
     @Test
-    public void mustFallbacktoSuperclassBecauseNoAuthoritiesConfiguredWithGivenWindowSize() throws Exception {
+    public void mustFallbacktoSuperclassBecauseNoAuthoritiesConfiguredWithGivenWindowSize()
+            throws Exception {
         ClusteredHornetQProperties noAuthorities = new ClusteredHornetQProperties();
         noAuthorities.setWindowSize(0);
         ClusteredHornetQConnectionFactoryFactory uut = spy(
                 new ClusteredHornetQConnectionFactoryFactory(mockBeanFactory, noAuthorities));
         HornetQConnectionFactory connectionFactory = uut.createConnectionFactory(factoryClass);
         verify(uut, times(1)).callSuperCreateConnectionFactory(factoryClass);
-        assertEquals(0, connectionFactory
-                .getConsumerWindowSize());
+        assertEquals(0, connectionFactory.getConsumerWindowSize());
     }
 
     @Test
-    public void mustNotFallbacktoSuperclassBecauseTwoAuthoritiesConfiguredWithGivenWindowSize() throws Exception {
+    public void mustNotFallbacktoSuperclassBecauseTwoAuthoritiesConfiguredWithGivenWindowSize()
+            throws Exception {
         ClusteredHornetQProperties twoAuthorities = new ClusteredHornetQProperties();
         twoAuthorities.setAuthorities("foo:8888,bar:9999");
         twoAuthorities.setWindowSize(0);
@@ -83,8 +86,7 @@ public class ClusteredHornetQConnectionFactoryFactory0Test {
                 new ClusteredHornetQConnectionFactoryFactory(mockBeanFactory, twoAuthorities));
         HornetQConnectionFactory connectionFactory = uut.createConnectionFactory(factoryClass);
         verify(uut, never()).callSuperCreateConnectionFactory(factoryClass);
-        assertEquals(0, connectionFactory
-                .getConsumerWindowSize());
+        assertEquals(0, connectionFactory.getConsumerWindowSize());
     }
 
     @Test

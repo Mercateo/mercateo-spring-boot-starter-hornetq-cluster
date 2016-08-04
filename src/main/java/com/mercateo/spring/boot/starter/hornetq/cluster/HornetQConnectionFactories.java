@@ -13,8 +13,8 @@ import com.google.common.collect.Iterables;
 import lombok.NonNull;
 
 /**
- * Provides factory methods to create {@link HornetQConnectionFactory} instances from
- * multiple authorities.
+ * Provides factory methods to create {@link HornetQConnectionFactory} instances
+ * from multiple authorities.
  * 
  * @author CFM
  */
