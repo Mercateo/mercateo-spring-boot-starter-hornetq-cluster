@@ -1,6 +1,6 @@
 package org.springframework.boot.autoconfigure.jms.hornetq;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.spy;
@@ -8,10 +8,10 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import org.hornetq.api.core.TransportConfiguration;
+import org.hornetq.api.core.client.HornetQClient;
 import org.hornetq.jms.client.HornetQConnectionFactory;
 import org.junit.Test;
 import org.springframework.beans.factory.ListableBeanFactory;
-import org.springframework.boot.autoconfigure.jms.hornetq.ClusteredHornetQConnectionFactoryFactory;
 
 import com.mercateo.spring.boot.starter.hornetq.cluster.ClusteredHornetQProperties;
 
@@ -40,22 +40,51 @@ public class ClusteredHornetQConnectionFactoryFactory0Test {
     }
 
     @Test
-    public void mustFallbacktoSuperclassBecauseNoAuthoritiesConfigured() throws Exception {
+    public void mustFallbacktoSuperclassBecauseNoAuthoritiesConfiguredNoWindowSize() throws Exception {
         ClusteredHornetQProperties noAuthorities = new ClusteredHornetQProperties();
         ClusteredHornetQConnectionFactoryFactory uut = spy(
                 new ClusteredHornetQConnectionFactoryFactory(mockBeanFactory, noAuthorities));
-        uut.createConnectionFactory(factoryClass);
+        HornetQConnectionFactory connectionFactory = uut.createConnectionFactory(factoryClass);
         verify(uut, times(1)).callSuperCreateConnectionFactory(factoryClass);
+        assertEquals(HornetQClient.DEFAULT_CONSUMER_WINDOW_SIZE, connectionFactory
+                .getConsumerWindowSize());
     }
 
     @Test
-    public void mustNotFallbacktoSuperclassBecauseTwoAuthoritiesConfigured() throws Exception {
+    public void mustNotFallbacktoSuperclassBecauseTwoAuthoritiesConfiguredNoWindowSize() throws Exception {
         ClusteredHornetQProperties twoAuthorities = new ClusteredHornetQProperties();
         twoAuthorities.setAuthorities("foo:8888,bar:9999");
         ClusteredHornetQConnectionFactoryFactory uut = spy(
                 new ClusteredHornetQConnectionFactoryFactory(mockBeanFactory, twoAuthorities));
-        uut.createConnectionFactory(factoryClass);
+        HornetQConnectionFactory connectionFactory = uut.createConnectionFactory(factoryClass);
         verify(uut, never()).callSuperCreateConnectionFactory(factoryClass);
+        assertEquals(HornetQClient.DEFAULT_CONSUMER_WINDOW_SIZE, connectionFactory
+                .getConsumerWindowSize());
+    }
+
+    @Test
+    public void mustFallbacktoSuperclassBecauseNoAuthoritiesConfiguredWithGivenWindowSize() throws Exception {
+        ClusteredHornetQProperties noAuthorities = new ClusteredHornetQProperties();
+        noAuthorities.setWindowSize(0);
+        ClusteredHornetQConnectionFactoryFactory uut = spy(
+                new ClusteredHornetQConnectionFactoryFactory(mockBeanFactory, noAuthorities));
+        HornetQConnectionFactory connectionFactory = uut.createConnectionFactory(factoryClass);
+        verify(uut, times(1)).callSuperCreateConnectionFactory(factoryClass);
+        assertEquals(0, connectionFactory
+                .getConsumerWindowSize());
+    }
+
+    @Test
+    public void mustNotFallbacktoSuperclassBecauseTwoAuthoritiesConfiguredWithGivenWindowSize() throws Exception {
+        ClusteredHornetQProperties twoAuthorities = new ClusteredHornetQProperties();
+        twoAuthorities.setAuthorities("foo:8888,bar:9999");
+        twoAuthorities.setWindowSize(0);
+        ClusteredHornetQConnectionFactoryFactory uut = spy(
+                new ClusteredHornetQConnectionFactoryFactory(mockBeanFactory, twoAuthorities));
+        HornetQConnectionFactory connectionFactory = uut.createConnectionFactory(factoryClass);
+        verify(uut, never()).callSuperCreateConnectionFactory(factoryClass);
+        assertEquals(0, connectionFactory
+                .getConsumerWindowSize());
     }
 
     @Test
