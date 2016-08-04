@@ -31,4 +31,5 @@ spring.hornetq.mode=native
 # optional
 spring.hornetq.user=
 spring.hornetq.password=
+spring.hornetq.windowSize=
 ```
