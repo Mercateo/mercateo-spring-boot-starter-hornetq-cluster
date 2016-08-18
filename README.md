@@ -8,6 +8,7 @@ Alternative to (actually wrapper of) the original starter ``org.springframework.
 - Creates a ``HornetQConnectionFactory`` by adding Netty ``TransportConfiguration``s for every given Hornetq authority (``host:port``).
 - If configured, will use ``spring.hornetq.user`` and ``spring.hornetq.password``to create a  ``UserCredentialsConnectionFactoryAdapter`` applying the given user credentials to every standard ``createConnection()`` call.
 - No JNDI lookups involved.
+- Optional property ``spring.hornetq.windowSize`` can be used to set the size of the message buffer for consumer flow control. Value must be -1 (to disable flow control), 0 (to not buffer any messages) or greater than 0 (to set the maximum size of the buffer in Bytes).
 
 ### Use
 
