@@ -12,7 +12,7 @@ Alternative to (actually wrapper of) the original starter ``org.springframework.
 
 ### Use
 
-Include the folling snippet in your project's ``pom.xml``:
+Include the following snippet in your project's ``pom.xml``:
 
 ```xml
 <dependency>
