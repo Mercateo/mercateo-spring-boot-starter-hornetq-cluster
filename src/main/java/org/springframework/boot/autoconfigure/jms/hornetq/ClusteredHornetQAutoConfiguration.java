@@ -31,7 +31,6 @@ import com.mercateo.spring.boot.starter.hornetq.cluster.UserCredentialsConnectio
 @ConditionalOnMissingBean(ConnectionFactory.class)
 @EnableConfigurationProperties(ClusteredHornetQProperties.class)
 @Import({ HornetQEmbeddedServerConfiguration.class,
-        /* HornetQXAConnectionFactoryConfiguration.class, */
         ClusteredHornetQConnectionFactoryConfiguration.class,
         UserCredentialsConnectionFactoryAdapterConfiguration.class })
 public class ClusteredHornetQAutoConfiguration {
