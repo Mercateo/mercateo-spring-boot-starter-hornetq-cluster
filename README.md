@@ -18,7 +18,7 @@ Include the following snippet in your project's ``pom.xml``:
 <dependency>
     <groupId>com.mercateo</groupId>
     <artifactId>mercateo-spring-boot-starter-hornetq-cluster</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
