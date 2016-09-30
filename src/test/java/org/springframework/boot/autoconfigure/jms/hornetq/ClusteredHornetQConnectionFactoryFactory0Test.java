@@ -14,6 +14,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.ListableBeanFactory;
 
 import com.mercateo.spring.boot.starter.hornetq.cluster.ClusteredHornetQProperties;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 public class ClusteredHornetQConnectionFactoryFactory0Test {
 
@@ -22,11 +23,13 @@ public class ClusteredHornetQConnectionFactoryFactory0Test {
     private Class<? extends HornetQConnectionFactory> factoryClass = HornetQConnectionFactory.class;
 
     @Test(expected = IllegalArgumentException.class) // Nope that's not an NPE
+    @SuppressFBWarnings("NP_NULL_PARAM_DEREF_NONVIRTUAL")
     public void mustBlowUpOnNullBeanFactory() throws Exception {
         new ClusteredHornetQConnectionFactoryFactory(null, new ClusteredHornetQProperties());
     }
 
     @Test(expected = IllegalArgumentException.class) // Nope that's not an NPE
+    @SuppressFBWarnings("NP_NULL_PARAM_DEREF_NONVIRTUAL")
     public void mustBlowUpOnNullProperties() throws Exception {
         new ClusteredHornetQConnectionFactoryFactory(mockBeanFactory, null);
     }
